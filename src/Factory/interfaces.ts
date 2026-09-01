@@ -1,11 +1,11 @@
-export interface AgentEvent {
-    type: string;
-    detail: string;
-    [key: string]: any;
+export interface UserProfile {
+      name?: string;
+      mainGoal?: string;
+      restrictions?: string[];
+      weeklyBudget?: number;
 }
 
-export interface Recipe {
-    name?: string;
-    ingredients: string[];
-    substitutes?: Record<string, string>;
+export interface Interaction {
+      action: string;
+      [key: string]: any;
 }

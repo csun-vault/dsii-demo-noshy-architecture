@@ -9,16 +9,16 @@ function registerUser(dietType: string, username: string) {
 
       // Si hay 20 perfiles, este switch tendrá 20 casos
       if (dietType === "keto") {
-            agent = new KetoAgent(username);
+            agent = new KetoAgent();
 
        // Quizás la inicialización requiere pasos específicos aquí
       } else if (dietType === "vegan") {
-            agent = new VeganAgent(username);
+            agent = new VeganAgent();
             // Hardcodeando preferencias por defecto, por ejemplo
             agent.negativePreferences.add("meat");
 
       } else if (dietType === "economic") {
-            agent = new EconomicAgent(username);
+            agent = new EconomicAgent();
       } else {
             throw new Error(`Unknown diet type: ${dietType}`);
       }

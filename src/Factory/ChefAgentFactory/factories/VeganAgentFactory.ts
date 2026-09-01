@@ -3,7 +3,7 @@ import { ChefAgent } from "../../ChefAgent/ChefAgent";
 import { ChefAgentFactory } from "../ChefAgentFactory";
 
 export class VeganAgentFactory extends ChefAgentFactory {
-    createAgent(username: string): ChefAgent {
-        return new VeganAgent(username);
+    createAgent(): ChefAgent {
+        return new VeganAgent();
     }
 }

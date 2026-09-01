@@ -10,17 +10,16 @@ export enum DietType {
       economic = "economic",
 }
 
-export function assignChefAgent(dietType: DietType, username: string): ChefAgent {
-      const factories: Record<string, ChefAgentFactory> = {
-            keto: new KetoAgentFactory(),
-            vegan: new VeganAgentFactory(),
-            economic: new EconomicAgentFactory(),
-      };
+// Registry
+const agentFactories: Record<DietType, ChefAgentFactory> = {
+      [DietType.keto]: new KetoAgentFactory(),
+      [DietType.vegan]: new VeganAgentFactory(),
+      [DietType.economic]: new EconomicAgentFactory(),
+};
 
-      const factory = factories[dietType.toLowerCase()];
-      if (!factory) {
-            throw new Error(`Unknown diet type: ${dietType}`);
-      }
+export function assignChefAgent(dietType: DietType): ChefAgent {
+      const factory = agentFactories[dietType];
+      if (!factory) throw new Error(`Factory for diet type '${dietType}' not found.`);
 
-      return factory.createAgent(username);
+      return factory.createAgent();
 }

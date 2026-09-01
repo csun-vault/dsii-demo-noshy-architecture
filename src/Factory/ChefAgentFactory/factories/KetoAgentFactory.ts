@@ -3,7 +3,7 @@ import { ChefAgent } from "../../ChefAgent/ChefAgent";
 import { ChefAgentFactory } from "../ChefAgentFactory";
 
 export class KetoAgentFactory extends ChefAgentFactory {
-    createAgent(username: string): ChefAgent {
-        return new KetoAgent(username);
+    createAgent(): ChefAgent {
+        return new KetoAgent();
     }
 }
